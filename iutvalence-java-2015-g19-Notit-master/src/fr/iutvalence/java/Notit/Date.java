@@ -15,19 +15,13 @@ import java.util.Set;
 public class Date extends GregorianCalendar
 {
 
-	/**
-	 * A list of note.
-	 */
+	
 	private Set<DayNote> listOfNote;
 	
-	/**
-	 * The name of the day.
-	 */
+	
 	private String dayName;
 	
-	/**
-	 * The name of the month.
-	 */
+	
 	private String monthName;
 
 	/**
@@ -66,26 +60,17 @@ public class Date extends GregorianCalendar
 		this.monthName = monthsName[this.get(MONTH)];
 	}
 	
-	/**
-	 * Update the list of note.
-	 * @throws IOException
-	 */
+
 	public void updateListOfNote() throws IOException{
 		this.listOfNote = new NoteList(this).getlistOfDayNote();
 	}
 	
-	/**
-	 * Getter to get the list of note
-	 * @return Set<DayNote>
-	 */
+	
 	public Set<DayNote> getListOfNote() {
 		return listOfNote;
 	}
 	
-	/**
-	 * Get a String of the date (Wednesday 10 June 2015).
-	 * @return String
-	 */
+
 	public String getEntireDate(){
 		return this.dayName + " " + this.get(DAY_OF_MONTH) + " " + this.monthName + " " + this.get(YEAR);
 	}
