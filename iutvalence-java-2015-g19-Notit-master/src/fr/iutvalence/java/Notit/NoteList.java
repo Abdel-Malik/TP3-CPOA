@@ -14,14 +14,9 @@ import java.util.Set;
  */
 public class NoteList
 {
-	/**
-	 * The list of note of the day.
-	 */
+
 	private Set<DayNote> listOfDayNote;
 
-	/**
-	 * The list of general note.
-	 */
 	private Set<GeneralNote> listOfGeneralNote;
 
 	/**
@@ -37,35 +32,21 @@ public class NoteList
 		String contenu = "";
 		this.listOfDayNote = new HashSet<DayNote>();
 		this.listOfGeneralNote = new HashSet<GeneralNote>();
-		File[] files = arrayOfGeneralNote();
-		if (files != null){
-			for (int index = 0; index < files.length; index++)
-			{
-				numTemp = "";
-				numero = 0;
-				title = "";
-				contenu = "";
-				FileReader flux = new FileReader(files[index]);
-				int lettre;
-				while ((lettre = flux.read()) != 13)
-				{
-					numTemp += (char) lettre;
-				}
-				numero = Integer.parseInt(numTemp);
-				while ((lettre = flux.read()) != 13)
-				{
-					title += (char) lettre;
-				}
-				while ((lettre = flux.read()) != -1)
-				{
-					contenu += (char) lettre;
-				}
-	
-				this.listOfGeneralNote.add(new GeneralNote(numero, title, contenu));
-				flux.close();
-			}
-		}
+		this.initializeGeneralNote();
+		
+		this.extractDataOfFile(null);
 	}
+	
+	
+	private void initializeGeneralNote() {
+		File[] files = arrayOfGeneralNote();
+		for (int index = 0; index < files.length; index++){
+			extractDataOfFile(files[index],null);
+		}
+		
+		
+	}
+
 
 	/**
 	 * The NoteList's constructor who recover the list of note of a day.
@@ -160,4 +141,34 @@ public class NoteList
 	{
 		return this.listOfDayNote;
 	}
+	
+	
+	
+	Note extractDataOfFile(File file){
+		if (files != null){
+			String numTemp = "";
+			int numero = 0;
+			String title = "";
+			String contenu = "";
+			FileReader flux = new FileReader(files[index]);
+			int lettre;
+			while ((lettre = flux.read()) != 13)
+			{
+				numTemp += (char) lettre;
+			}
+			numero = Integer.parseInt(numTemp);
+			while ((lettre = flux.read()) != 13)
+			{
+				title += (char) lettre;
+			}
+			while ((lettre = flux.read()) != -1)
+			{
+				contenu += (char) lettre;
+			}
+			GeneralNote noteForReturn = new GeneralNote(numero, title, contenu);
+			flux.close();
+		}
+		return note ForReturn;
+	}
+	
 }
