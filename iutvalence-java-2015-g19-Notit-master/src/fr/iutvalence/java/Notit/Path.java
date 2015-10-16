@@ -9,12 +9,6 @@ import java.io.File;
  */
 public class Path {
 
-	/**
-	 * To check the path.
-	 * 
-	 * @param path
-	 * @return boolean
-	 */
 	public static boolean checkPath(String path) {
 		File file = new File(path);
 		if (file.exists())
@@ -22,21 +16,13 @@ public class Path {
 		return false;
 	}
 
-	/**
-	 * To create a path.
-	 */
 	public static void createPath(String path) {
 		File file = new File(path);
 		file.mkdirs();
 	}
 	
-	/**
-	 * To return the higher id of a note.  
-	 * 
-	 * @param path
-	 * @return (max+1) the id for a new note
-	 */
-	public static int maxFileInPath(String path) {
+
+	public static int maxIdFileInPath(String path) {
 		int max = 0;
 		if(checkPath(path)){
 			File repository = new File(path);

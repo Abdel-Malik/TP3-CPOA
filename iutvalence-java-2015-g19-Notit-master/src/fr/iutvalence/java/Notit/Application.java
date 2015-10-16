@@ -44,7 +44,7 @@ public class Application {
 	 */
 	public void createDayNotes(String title, String content, Date date) throws IOException{
 		String path = "Notes/"+date.getDate();
-		editDayNotes(new DayNote(Path.maxFileInPath(path), title, content, date), title, content);
+		editDayNotes(new DayNote(Path.maxIdFileInPath(path), title, content, date), title, content);
 	}
 
 	/**
@@ -68,7 +68,7 @@ public class Application {
 	 */
 	public void createGNotes(String title, String content) throws IOException{
 		String path = "GeneralNotes";
-		editGNotes(new GeneralNote(Path.maxFileInPath(path), title, content), title, content);
+		editGNotes(new GeneralNote(Path.maxIdFileInPath(path), title, content), title, content);
 	}
 	
 	/**
