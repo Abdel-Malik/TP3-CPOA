@@ -67,33 +67,20 @@ public class Calendar
 		return listOfDays;
 	}
 
-	/**
-	 * Getter to get list of date for a month.
-	 * 
-	 * @return listOfDateForAMonth
-	 */
+
 	public Set<Date> getListOfDateForAMonth()
 	{
 		return listOfDateForAMonth;
 	}
 
-	/**
-	 * Setter to set list of date for a month.
-	 * 
-	 * @param month
-	 * @param year
-	 * @throws IOException
-	 */
+	
 	public void setListOfDateForAMonth(int month, int year) throws IOException
 	{
 		this.listOfDateForAMonth = listOfDateForAMonth(month, year);
 	}
+
 	
-	/**
-	 * Return the day number of the first day.
-	 * @return
-	 */
-	public int getFirstDay(){
+	public int getIdFirstDay(){
 		for (Date date : listOfDateForAMonth)
 		{
 			if (date.get(Date.DAY_OF_MONTH) == 1){
@@ -103,10 +90,7 @@ public class Calendar
 		return 0;
 	}
 	
-	/**
-	 * Getter to get the month number.
-	 * @return
-	 */
+
 	public int getMonthNumber() {
 		return monthNumber;
 	}
