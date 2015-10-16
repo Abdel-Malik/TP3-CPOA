@@ -35,7 +35,7 @@ public class Date extends GregorianCalendar
 	{
 		super(year, month, day);
 		this.listOfNote = new NoteList(this).getlistOfDayNote();
-		this.searchName();
+		this.searchNameOfDayAndMonthOfTheCurrentDate();
 	}
 
 	/**
@@ -45,13 +45,11 @@ public class Date extends GregorianCalendar
 	{
 		super();
 		this.listOfNote = new NoteList(this).getlistOfDayNote();
-		this.searchName();
+		this.searchNameOfDayAndMonthOfTheCurrentDate();
 	}
+
 	
-	/**
-	 * Define the day and month name.
-	 */
-	private void searchName()
+	private void searchNameOfDayAndMonthOfTheCurrentDate()
 	{
 		DateFormatSymbols formatSymbol = new DateFormatSymbols(Locale.ENGLISH); // elementInYear = English date format
 		String[] daysName = formatSymbol.getWeekdays();
@@ -75,16 +73,13 @@ public class Date extends GregorianCalendar
 		return this.dayName + " " + this.get(DAY_OF_MONTH) + " " + this.monthName + " " + this.get(YEAR);
 	}
 	
-	/**
-	 * Get a String of the date (2015-05-10).
-	 * @return String
-	 */
+
 	public String getDate(){
 		return this.get(YEAR) + "-" + this.get(MONTH) + "-" + this.get(DAY_OF_MONTH);
 	}
 	
 	/**
-	 * Displays the date and the list of date attached.
+	 * Displays the date and the list of note attached.
 	 */
 	public String toString()
 	{
